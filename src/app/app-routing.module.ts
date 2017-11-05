@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
-import {HomeComponent} from '../home/home/home.component';
-import {ResourceComponent} from '../resource/resource/resource.component';
+import {HomeComponent} from './home/home.component';
+import {StudentCenterComponent} from './student-center/student-center.component';
 
 const routes: Routes = [
   {
@@ -12,7 +12,7 @@ const routes: Routes = [
     path: 'home', component: HomeComponent
   },
   {
-    path: 'resource', component: ResourceComponent
+    path: 'students', component: StudentCenterComponent
   }
 ];
 

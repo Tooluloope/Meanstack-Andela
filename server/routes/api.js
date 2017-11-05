@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Student = require('../models/student');
 
 
-const db = 'mongodb://LocalHost/Andela/school';
+const db = 'mongodb://userTolu:toszy.com@ds036577.mlab.com:36577/andela';
 mongoose.Promise = global.Promise;
 mongoose.connect(db, function (err) {
   if (err) {
@@ -34,7 +34,7 @@ router.get('/students/:id', function (req, res) {
   });
 });
 
-router.post('/students', function (req, res) {
+router.post('/student', function (req, res) {
   console.log('add a new student');
   var newStudent = new Student();
   newStudent.FullName = req.body.FullName;

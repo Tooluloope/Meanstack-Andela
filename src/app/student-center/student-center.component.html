@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5">
+
+        <button  (click)="newStudent()" type="button"  class="btn btn-success btn-block" style="margin-bottom: 10px; width: 50%; margin-top: 10px;">New Student</button>
+
+      <app-student-list
+        (SelectedStudent)="onSelectStudent($event)"
+        [students] = 'students'>
+      </app-student-list>
+    </div>
+    <div class="col-sm-7">
+      <div *ngIf="!hidenewStudent">
+        <h2>New Student</h2>
+        <form #form="ngForm" (ngSubmit)="onSubmitAddStudent(form.value)" class="well">
+          <div class="form-group">
+            <label for="FullName">Full Name</label>
+            <input  id="FullName" type="text" class="form-control" required name="FullName" ngModel>
+          </div>
+          <div class="form-group">
+            <label for="CurrentLevel">Current Level</label>
+            <input  id="CurrentLevel" type="text" class="form-control" required name="CurrentLevel" ngModel>
+          </div>
+          <div class="form-group">
+            <label for="CourseOfStudy">Course Of Study</label>
+            <input id="CourseOfStudy" type="text" class="form-control" required name="CourseOfStudy" ngModel>
+          </div>
+          <div class="form-group">
+            <label for="YearOfEntry">Year Of Entry</label>
+            <input type="text" id="YearOfEntry" class="form-control" required name="YearOfEntry" ngModel>
+          </div>
+          <div class="form-group">
+            <label for="DurationOfStudy">Duration Of Study</label>
+            <input type="text" id="DurationOfStudy" class="form-control" required name="DurationOfStudy" ngModel>
+          </div>
+          <div class="form-group">
+            <label for="ImageUrl">Image Url</label>
+            <input type="text" id="ImageUrl" class="form-control" required name="ImageUrl" ngModel>
+          </div>
+          <button type="submit" class="btn btn-success">Save</button>
+        </form>
+      </div>
+      <app-student-detail (UpdateStudentEvent)="onUpdateStudentEvent($event)"
+                          (DeleteStudentEvent)="onDeleteStudentEvent($event)"
+        *ngIf="selectedStudent && hidenewStudent" [student]="selectedStudent"></app-student-detail>
+    </div>
+  </div>
+</div>
+

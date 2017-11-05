@@ -15,7 +15,7 @@ const api = require('./server/routes/api');
 app.use(bodyParser.json());
 app.set('views', path.join(__dirname, 'dist'));
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'dist')));
 
 app.use('/api', api);
