@@ -1,0 +1,79 @@
+<!--<div class="row">-->
+<!--<div class="col-xs-12">-->
+<!--<img src="{{student.ImageUrl}}"-->
+<!--alt="{{student.FullName}}"-->
+<!--class="img-responsive"-->
+<!--style="max-height: 300px;">-->
+<!--</div>-->
+<!--</div>-->
+<!--<br>-->
+<!--<div class="panel panel-primary">-->
+<!--<div class="panel-heading">-->
+<!--<h3 class="panel-title">Full Name</h3>-->
+<!--</div>-->
+<!--<div class="panel-body" style="padding: 10px;"><h4>{{student.FullName}}</h4></div>-->
+<!--</div>-->
+<!--<div class="panel panel-primary">-->
+<!--<div class="panel-heading">-->
+<!--<h3 class="panel-title">Current Level</h3>-->
+<!--</div>-->
+<!--<div class="panel-body" style="padding: 10px;"><h4>{{student.CurrentLevel}}</h4></div>-->
+<!--</div>-->
+<!--<div class="panel panel-primary">-->
+<!--<div class="panel-heading">-->
+<!--<h3 class="panel-title">Course Of Study</h3>-->
+<!--</div>-->
+<!--<div class="panel-body" style="padding: 10px;"><h4>{{student.CourseOfStudy}}</h4></div>-->
+<!--</div>-->
+<!--<div class="panel panel-primary">-->
+<!--<div class="panel-heading">-->
+<!--<h3 class="panel-title">Duration of Study</h3>-->
+<!--</div>-->
+<!--<div class="panel-body" style="padding: 10px;"><h4>{{student.DurationOfStudy}}</h4></div>-->
+<!--</div>-->
+<!--<div class="panel panel-primary">-->
+<!--<div class="panel-heading">-->
+<!--<h3 class="panel-title">Year Of Entry</h3>-->
+<!--</div>-->
+<!--<div class="panel-body" style="padding: 10px;"><h4>{{student.YearOfEntry}}</h4></div>-->
+<!--</div>-->
+<div>
+  <div class="row">
+    <div class="col-xs-12">
+      <img src="{{student.ImageUrl}}"
+           alt="{{student.FullName}}"
+           class="img-responsive"
+           style="max-height: 300px;
+                  width: 50%;">
+    </div>
+  </div>
+  <form>
+    <div  *ngIf="editTitle" class="form-group">
+      <input type="text" name="FullName" required placeholder="Full Name" class="form-control"
+      [(ngModel)]="student.FullName">
+    </div>
+    <h3 *ngIf="!editTitle" (click)="onTitleClick()">{{ student.FullName }}</h3>
+    <div class="form-group">
+      <input type="text" name="ImageUrl" required placeholder="Image Url" class="form-control"
+             [(ngModel)]="student.ImageUrl">
+    </div>
+    <div class="form-group">
+      <input type="text" name="CurrentLevel" required placeholder="Current Level" class="form-control"
+             [(ngModel)]="student.CurrentLevel">
+    </div>
+    <div class="form-group">
+      <input type="text" name="CourseOfStudy" required placeholder="Course Of Study" class="form-control"
+             [(ngModel)]="student.CourseOfStudy">
+    </div>
+    <div class="form-group">
+      <input type="text" name="DurationOfStudy" required placeholder="Duration Of Study" class="form-control"
+             [(ngModel)]="student.DurationOfStudy">
+    </div>
+    <div class="form-group">
+      <input type="text" name="YearOfEntry" required placeholder="Year Of Entry" class="form-control"
+             [(ngModel)]="student.YearOfEntry">
+    </div>
+    <button type="button" (click)="updateStudent()" class="btn btn-primary">Update</button>
+    <button type="button" (click)="deleteStudent()" class="btn btn-danger">Delete</button>
+  </form>
+</div>
